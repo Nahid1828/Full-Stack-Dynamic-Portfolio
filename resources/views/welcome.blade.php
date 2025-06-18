@@ -129,14 +129,14 @@
             molestias veniam cumque porro.</p>
     </div>
 
-
+    
 
     <!-- about me starts here  -->
     <div class="about-me" id="about-me-id">
         <h2>ABOUT ME</h2>
         <hr class="dotted-hr">
         <div class="aboutme-image col-6">
-            <img src="images/Nahid.jpg" width="100%" alt="">
+            <img id="avatar" src="images/Nahid.jpg" width="100%" alt="">
         </div>
         <div class="aboutme-desc col-6">
             <p>I like to call myself “a passionate computer science student & Web developer”. </p>

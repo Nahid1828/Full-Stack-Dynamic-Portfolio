@@ -9,6 +9,19 @@ for (i=0; i < tags.length; i++){
 
 document.querySelectorAll(".title").forEach((abc) => {
     abc.onclick = function () {
-        prompt(this.innerText);
+        this.innerHTML = `
+        <h3>
+        <a href="#">This is by Js</a>
+        <p>This is assigned Dynamicaly</p>
+        </h3>
+        `;
+        this.style.color = "Yellow"
+        this.style.backgroundColor = "#000000";
+        this.style.borderRadius = "10px";
+        this.style.padding = "20px"
+
+        avatar = document.getElementById("Avatar");
+        avatar.src =
+          "https://neurosciencenews.com/files/2023/05/ai-trust-human-neurosinecce.jpg";
     };
 });
