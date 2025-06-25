@@ -1,142 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('index')
+@push('style')
+    <title>Portfolio - Home</title>
+@endpush
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            font-family: "Fira Sans", sans-serif;
-        }
-
-        body {
-            margin: 0;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            background-color: #0c6168;
-            text-align: center;
-            padding: 10px 10px;
-        }
-
-        .nav-heading h1 {
-            text-align: left;
-            color: white;
-        }
-
-        .navbar-menu {
-            display: flex justify-content: space-evenly;
-            /* margin-left: 100px; */
-            margin-top: 30px;
-            gap: 50px;
-        }
-
-        .navbar-menu a {
-            padding: 5px 10px;
-            margin: 20px 0;
-            background-color: #40868b;
-            border-radius: 10px;
-            color: white;
-            text-decoration: none;
-        }
-
-        .navbar-menu a:hover {
-            background-color: azure;
-        }
-
-        .profile h1,
-        .profile p {
-            text-align: center;
-        }
-
-
-        /* about me design starts here  */
-        .about-me {
-            background-color: #39a4ac;
-            padding: 1% 7%;
-            color: white;
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .aboutme-image img {
-            border: 5px solid white;
-            border-radius: 50%;
-            height: 220px;
-            width: 200px;
-        }
-
-        .about-me p {
-            text-align: center;
-        }
-
-        .about-me a {
-            font-size: 1.2rem;
-        }
-
-        .cv-button {
-            background-color: #052d2f;
-            color: white;
-            border: none;
-            border-radius: 12px;
-            padding: 15px;
-            font-size: 1rem;
-            cursor: pointer;
-            text-align: center;
-            margin: 10px;
-        }
-
-        .about-me::after {
-            clear: both;
-            display: table;
-            content: '';
-        }
-
-        /* about me design ends here  */
-    </style>
-</head>
-
-<body>
-    <nav>
-        <div class="navbar">
-            <div class="nav-heading">
-                <h1>Nahid Islam</h1>
-            </div>
-            <div class="navbar-menu">
-                <a href="#">Home</a>
-                <a href="#">About Me</a>
-                <a href="#">Skill</a>
-                <a href="#">Contact Me</a>
-            </div>
-    </nav>
-
-
-    <div class="profile">
-        <h1 class="title">I am Web Developer</h1>
-        <p id="test">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad corporis autem inventore. Itaque, laboriosam!
-            Est officia asperiores quaerat culpa, aliquid dignissimos repellendus sunt facere nesciunt reiciendis
-            molestias veniam cumque porro.</p>
+@section('main-content')
+    <!-- navbar starts from here  -->
+    <div class="navbar">
+        <div class="nav-logo col-2">
+            <img src="assets/images/logo.png" width="100px" alt="logo">
+        </div>
+        <div class="nav-heading col-4">
+            <h1>Nahid Islam</h1>
+        </div>
+        <div class="navbar-menu col-4">
+            <a href="#">Home</a>
+            <a href="#about-me-id">About Me</a>
+            <a href="#skill-id">Skill</a>
+            <a href="#contact-id">Contact Me</a>
+        </div>
     </div>
 
-    
+    <!-- navbar ends here  -->
+
+    <!-- profile starts from here  -->
+    <div class="profile">
+      
+        <div class="profile-desc">
+            <h1> I am a Web Developer</h1>
+            <p>Hi! My name is Nahid Islam. Welcome to my personal page that I’ve designed to showcase my skills and
+                expertise that I’ve accumulated over the year. </p>
+        </div>
+      
+    </div>
+    <!-- profile ends here  -->
 
     <!-- about me starts here  -->
     <div class="about-me" id="about-me-id">
         <h2>ABOUT ME</h2>
-        <hr class="dotted-hr">
         <div class="aboutme-image col-6">
-            <img id="avatar" src="images/Nahid.jpg" width="100%" alt="">
+            <img src="assets/images/Nahid.jpg" width="100%" alt="">
         </div>
         <div class="aboutme-desc col-6">
             <p>I like to call myself “a passionate computer science student & Web developer”. </p>
@@ -154,17 +56,118 @@
             <p>Website: <a href="#" target="blank"></a> </p>
             <hr class="aboutme-hr">
 
-            <p>
-                <a href="#" target="blank">
-                    <button class="cv-button">Download CV</button>
-                </a>
-            </p>
-
         </div>
     </div>
     <!-- about me ends here  -->
-    </div>
-    <script src="{{ asset('assets/js/script.js') }}"></script>
-</body>
 
-</html>
+    <!-- professional experience start here  -->
+
+    <div class="professional-experience">
+
+        <div class="education col-6">
+
+            <div class="card">
+                <div class="card-title">
+                    <h2>EDUCATION</h2>
+                </div>
+
+                <div class="card-desc">
+                    <ol>
+                        <li>
+                            <strong>B.Sc. in Computer Science & Engineering</strong> <br>
+                            2022-2025</br>
+                            Lorem ipsum dolor sit amet. <br>
+                            Lorem ipsum dolor sit amet. <br>
+                            Result: A- (3.50/4.00) <br>
+                        </li>
+                        <hr>
+                        <li>
+                            <strong>Higher Secondary Certificate</strong> <br>
+                            2019-2020 <br>
+                            Gurudayal Govt. College <br>
+                            Lorem ipsum dolor sit amet.<br>
+                            Result: A (4.17/5.00) <br>
+                        </li>
+                        <hr>
+                        <li>
+                            <strong>Secondary School Certificate</strong> <br>
+                            2017-2018 <br>
+                            Lorem ipsum dolor sit amet. <br>
+                            Lorem ipsum dolor sit amet.<br>
+                            Result: A (4.82/5.00) <br>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="skills col-6" id="skill-id">
+            <div class="card">
+                <div class="card-title">
+                    <h2>SKILLS</h2>
+                </div>
+
+                <div class="card-desc">
+                    <div class="skills-container">
+                        <ul>
+                            <li class="html">HTML</li>
+                            <li class="css">CSS</li>
+                            <li class="bootstrap">Bootstrap</li>
+                            <li class="js">JavaSCript</li>
+                            <li class="git">GitHub</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- professional experience end here  -->
+
+    <!-- Contact starts from here  -->
+
+    <div class="achievemnet-contact">
+        <div class="contact col-6" id="contact-id">
+            <h2>CONTACT ME</h2>
+
+            <form action="mailto:n.i.nahid02@gmail.com" method="post" enctype="text/plain">
+                <p><input type="text" placeholder="Your Name" name="name"></p>
+                <p><input type="email" placeholder="Your Email" name="email:"></p>
+                <textarea name="message" id="" cols="30" rows="10" placeholder="Your Message Here"></textarea>
+                <button type="submit">SEND</button>
+                <button type="reset">RESET</button>
+            </form>
+        </div>
+
+        <div class="contact-links col-6">
+            <h2>More ways to Contact</h2>
+            <div class="media-buttons">
+                <button class="btn" onclick="window.open('https://www.youtube.com/@nahidislam7386')"
+                    class="request-callback"><i class="fa fa-youtube-play" style="color: #c4302b;"
+                        aria-hidden="true"></i></button>
+                <button class="btn" onclick="window.open('https://www.facebook.com/n.i.nahid28')"
+                    class="btn request-callback"><i class="fa fa-facebook" style="color:  #3b5998;"
+                        aria-hidden="true"></i></button>
+                <button class="btn" onclick="window.open('https://github.com/Nahid1828')"
+                    class="btn request-callback"><i class="fa fa-github" aria-hidden="true"
+                        style="color: #000000;"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact ends from here  -->
+    <!-- footer starts from here  -->
+
+    <div class="footer">
+        <div class="footer-menu col-6">
+            <a href="#">Home</a>
+            <a href="#about-me-id">About Me</a>
+            <a href="#skill-id">Skill</a>
+            <a href="#contact-id">Contact Me</a>
+        </div>
+
+        <div class="footer-desc col-6">
+            &copy; Nahid 2025. Developed with <span style="color: red; font-size: 1.5rem;">❤</span> by Nahid.
+        </div>
+    </div>
+    <!-- footer ends here  -->
+@endsection
