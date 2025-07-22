@@ -16,6 +16,7 @@
             <a href="#">Home</a>
             <a href="#about-me-id">About Me</a>
             <a href="#skill-id">Skill</a>
+            <a href="#project-id">Projects</a>
             <a href="#contact-id">Contact Me</a>
         </div>
     </div>
@@ -24,13 +25,13 @@
 
     <!-- profile starts from here  -->
     <div class="profile">
-      
+
         <div class="profile-desc">
             <h1> I am a Web Developer</h1>
             <p>Hi! My name is Nahid Islam. Welcome to my personal page that I’ve designed to showcase my skills and
                 expertise that I’ve accumulated over the year. </p>
         </div>
-      
+
     </div>
     <!-- profile ends here  -->
 
@@ -123,19 +124,72 @@
     </div>
     <!-- professional experience end here  -->
 
+    <!-- Projects Section Starts -->
+    <div class="projects" id="project-id">
+        <h2>PROJECTS</h2>
+        <div class="projects-container">
+            <!-- Project Card 1 -->
+            <div class="project-card">
+                <img src="assets/images/project1.avif" alt="Blood Bank Management Project">
+                <div class="project-info">
+                    <h3>Blood Bank Management System</h3>
+                    <p>Web application built with PHP and MySQL to manage blood donors, recipients, inventory, and requests.
+                    </p>
+                    <a href="#" target="_blank" class="btn-link">View Project</a>
+                </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="project-card">
+                <img src="assets/images/project2.avif" alt="Online Course Management System">
+                <div class="project-info">
+                    <h3>Online Course Management System</h3>
+                    <p>A platform for managing courses, students, enrollments, and progress tracking built with Laravel and
+                        MySQL.</p>
+                    <a href="#" target="_blank" class="btn-link">View Project</a>
+                </div>
+            </div>
+
+
+            <!-- Project Card 3 -->
+            <div class="project-card">
+                <img src="assets/images/project3.avif" alt="E-commerce Website">
+                <div class="project-info">
+                    <h3>E-commerce Website</h3>
+                    <p>Developed a fully functional e-commerce site using Laravel and Bootstrap.</p>
+                    <a href="#" target="_blank" class="btn-link">View Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Projects Section Ends -->
+
     <!-- Contact starts from here  -->
 
     <div class="achievemnet-contact">
         <div class="contact col-6" id="contact-id">
             <h2>CONTACT ME</h2>
 
-            <form action="mailto:n.i.nahid02@gmail.com" method="post" enctype="text/plain">
-                <p><input type="text" placeholder="Your Name" name="name"></p>
-                <p><input type="email" placeholder="Your Email" name="email:"></p>
-                <textarea name="message" id="" cols="30" rows="10" placeholder="Your Message Here"></textarea>
+            <form action="mailto:n.i.nahid02@gmail.com" method="post" enctype="text/plain" id="contactForm" novalidate>
+                <p>
+                    <input type="text" placeholder="Your Name" name="name" id="name" />
+                    <span class="error-msg" id="nameError"></span>
+                </p>
+                <p>
+                    <input type="email" placeholder="Your Email" name="email" id="email" />
+                    <span class="error-msg" id="emailError"></span>
+                </p>
+                <p>
+                    <textarea name="message" placeholder="Your Message Here" id="message" cols="30" rows="10"></textarea>
+                    <span class="error-msg" id="messageError"></span>
+                </p>
                 <button type="submit">SEND</button>
-                <button type="reset">RESET</button>
+                <button type="reset" id="resetBtn">RESET</button>
+
+                <p id="successMsg" style="color: green; font-weight: bold; margin-top: 10px; display: none;"></p>
             </form>
+
+
         </div>
 
         <div class="contact-links col-6">

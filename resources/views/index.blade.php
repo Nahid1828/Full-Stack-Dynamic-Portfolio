@@ -10,9 +10,11 @@
     <!--Google Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap"
+        rel="stylesheet">
 
-    
+
     @stack('style')
 
     <style>
@@ -69,7 +71,7 @@
             position: fixed;
             width: 100%;
             z-index: 1;
-            
+
         }
 
         .navbar h1 {
@@ -339,6 +341,128 @@
 
         /* professional-experience ends here  */
 
+        /* Projects Section Styling */
+        .projects {
+            background: linear-gradient(135deg, #d0f0f2, #7bc0c8);
+            padding: 60px 20px;
+            font-family: 'Montserrat', sans-serif;
+            color: #2c3e50;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 25px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+
+        .projects h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 320px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .project-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-info h3 {
+            margin: 0 0 10px 0;
+            color: #0c6168;
+        }
+
+        .project-info p {
+            flex-grow: 1;
+            color: #555;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .btn-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0c6168;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-link:hover {
+            background-color: #07504f;
+            color: white;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 991px) {
+            .projects-container {
+                justify-content: center;
+            }
+
+            .project-card {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar-menu {
+                flex-direction: column !important;
+                margin-left: 0 !important;
+            }
+
+            .navbar-menu a {
+                margin: 8px 0 !important;
+            }
+
+            .about-me {
+                height: auto !important;
+            }
+
+            .professional-experience {
+                height: auto !important;
+            }
+
+            .achievemnet-contact {
+                height: auto !important;
+            }
+        }
+
+
         /*contact starts from here  */
         .achievemnet-contact {
             padding: 1% 7%;
@@ -590,6 +714,15 @@
         }
 
         /* footer ends here  */
+
+        /* js error message */
+        .error-msg {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: block;
+            min-height: 18px;
+        }
     </style>
 
 </head>
@@ -598,6 +731,74 @@
 
     @yield('main-content')
     <script src="{{ asset('assets/js/script.js') }}"></script>
+
+    <!-- Contact form validation JS -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const message = document.getElementById('message');
+
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const messageError = document.getElementById('messageError');
+            const successMsg = document.getElementById('successMsg');
+
+            // Error messages clear
+            nameError.textContent = '';
+            emailError.textContent = '';
+            messageError.textContent = '';
+            successMsg.style.display = 'none';
+            successMsg.textContent = '';
+
+            let valid = true;
+
+            if (name.value.trim() === '') {
+                nameError.textContent = 'Please fill the name.';
+                valid = false;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.value.trim() === '') {
+                emailError.textContent = 'Please fill the email.';
+                valid = false;
+            } else if (!emailPattern.test(email.value.trim())) {
+                emailError.textContent = 'Please enter a valid email address.';
+                valid = false;
+            }
+
+            // Message optional, uncomment if want to make required
+            /*
+            if (message.value.trim() === '') {
+              messageError.textContent = 'Please fill the message.';
+              valid = false;
+            }
+            */
+
+            if (valid) {
+                successMsg.textContent = 'Message sent successfully!';
+                successMsg.style.display = 'block';
+
+                // 5 সেকেন্ড পর মেসেজ হাইড ও ফর্ম রিসেট
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                    this.reset();
+                }, 5000);
+            }
+        });
+
+        // Reset button clicked: clear all errors & success message
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            document.getElementById('nameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('messageError').textContent = '';
+            const successMsg = document.getElementById('successMsg');
+            successMsg.style.display = 'none';
+            successMsg.textContent = '';
+        });
+    </script>
 </body>
 
 </html>
