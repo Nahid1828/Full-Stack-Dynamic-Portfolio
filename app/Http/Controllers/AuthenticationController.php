@@ -16,9 +16,9 @@ class AuthenticationController extends Controller
         ]);
 
         if(Auth::attempt($credentials)){
-            echo "Login Successful";
+             return redirect("admin/dashboard");
         }else{
-            echo "Login Failed";
+           return redirect("/login");
         }
 
     }
@@ -36,7 +36,7 @@ class AuthenticationController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        echo "Registration Success";
+        return redirect("/login");
 
     }
 }
