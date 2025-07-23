@@ -7,11 +7,12 @@
     <title>Login - Portfolio Admin</title>
 </head>
 <body>
-    <form action="{{ route('login')}}" method="POST">
+    <form action="{{ route('register')}}" method="POST">
         @csrf
+        <input type="text" placeholder="Enter Name" name="name"><br>
         <input type="email" placeholder="Enter Email" name="email"><br>
         <input type="password" name="password" placeholder="Enter Password"><br>
-        <button>Login</button>
+        <button>Register</button>
     </form>
 </body>
 </html>
