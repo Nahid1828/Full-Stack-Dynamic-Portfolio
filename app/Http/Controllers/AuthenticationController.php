@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AuthenticationController extends Controller
 {
@@ -28,6 +29,14 @@ class AuthenticationController extends Controller
             'email' => "required" ,
             'password' => "required" , 
         ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+
+        echo "Registration Success";
 
     }
 }
