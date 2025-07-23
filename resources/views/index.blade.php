@@ -30,7 +30,7 @@
 
         h1 {
             font-size: 2.5rem;
-            text-align: center;
+            text-align: center; 
         }
 
         h2 {
