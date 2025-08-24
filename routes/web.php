@@ -85,3 +85,45 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
     Route::get('/projects', [DashboardController::class, 'projects'])->name('admin.projects');
     // অন্য রুট যোগ করো...
 });
+
+// Users Management Routes
+Route::get('/admin/users', [DashboardController::class, 'users'])->name('admin.users');
+Route::get('/admin/users/{id}/edit', [DashboardController::class, 'editUser'])->name('admin.users.edit');
+Route::post('/admin/users/{id}/update', [DashboardController::class, 'updateUser'])->name('admin.users.update');
+Route::delete('/admin/users/{id}/delete', [DashboardController::class, 'deleteUser'])->name('admin.users.delete');
+
+// Add Project
+Route::prefix('admin')->group(function () {
+    Route::get('/projects', [DashboardController::class, 'projects'])->name('admin.projects');
+    Route::get('/projects/create', [DashboardController::class, 'createProject'])->name('admin.projects.create');
+    Route::post('/projects', [DashboardController::class, 'storeProject'])->name('admin.projects.store');
+});
+
+//Add Skills
+
+use App\Http\Controllers\SkillController;
+
+
+
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    // Skills Routes
+    Route::get('/skills', [SkillController::class, 'index'])->name('admin.skills');        // List page
+    Route::get('/skills/create', [SkillController::class, 'create'])->name('admin.skills.create'); // Add form
+    Route::post('/skills', [SkillController::class, 'store'])->name('admin.skills.store');       // Save form
+});
+
+Route::delete('/skills/{id}', [SkillController::class, 'destroy'])->name('admin.skills.destroy');
+//ADD Education
+
+use App\Http\Controllers\EducationController;
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/educations', [EducationController::class, 'index'])->name('admin.educations');
+    Route::get('/educations/create', [EducationController::class, 'create'])->name('admin.educations.create');
+    Route::post('/educations/store', [EducationController::class, 'store'])->name('admin.educations.store');
+    Route::delete('/educations/{id}', [EducationController::class, 'destroy'])->name('admin.educations.destroy');
+});
+
+
+
